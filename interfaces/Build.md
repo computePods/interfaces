@@ -36,13 +36,13 @@ httpRoutes:
 ```yaml
 jsonTypes:
   buildTasks:
-    __array__: taskStatus
+    _array_: taskStatus
 
   taskStatus:
     target: string
     progress: int
     dependencies:
-      __array__: string
+      _array_: string
 ```
 
 ## Getting the status of a single build task
@@ -69,3 +69,53 @@ has to proceed "around the cycle". These copies will be distinguished by
 "level-decorators" (cycle numbers). We need to make sure the hierarchy 
 names of these "(sub)directories" remains stable as the build goes around 
 a cycle multiple times. ***How do we do this?***
+
+## Examples
+
+### Example taskStatus
+
+```yaml
+jsonExamples:
+  taskStatus:
+    title: example task status
+    httpRoutes:
+      route: /build/status/example
+      action: GET
+---
+
+target: example
+
+progress: 50
+
+dependencies:
+  - example1
+  - anOther/task
+
+```
+
+### Example buildTasks
+
+Note that in this example we *have* a dependency cycle.
+
+```yaml
+jsonExamples:
+  buildTasks:
+    title: example list of build tasks
+    httpRoutes:
+      route: /build/current
+      action: GET
+
+---
+- target: example1
+  progress: 30
+  dependencies:
+    - example
+- target: example
+  progress: 50
+  dependencies:
+    - example1
+    - anOther/task
+```
+
+
+

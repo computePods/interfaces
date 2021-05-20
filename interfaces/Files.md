@@ -34,10 +34,43 @@ A `workspaceTree` is a recursive JSON structure which captures a
 jsonTypes:
   workspaceTree:
     directories: 
-      __dictionary__: workspaceTree
-   files:
-     __dictionary__: string
+      _dictionary_: workspaceTree
+    files:
+     _dictionary_: string
 ```
 
 **Question**: how do get the types of a given file? Do we simply rely on 
 an extension mapping? 
+
+
+### Example workspaceTree
+
+```yaml
+jsonExamples:
+  workspaceTree:
+    title: Measuring Heyting Algebras workspace
+    httpRoutes:
+      route: /files/measuringHeyting
+      action: GET
+
+---
+
+directories:
+  partialOrders :
+    directories:
+      subsectionA :
+        directories: {}
+        files:
+          - subsectionA.tex
+    files:
+      - partialOrders.tex
+  heytingSymmetries :
+    directories: {}
+    files:
+      - heytingSymmetries.tex
+
+files:
+  - project.yaml
+  - measuringHeyting.tex
+
+```

@@ -17,11 +17,19 @@ httpRoutes:
 
 ### Project definition files
 
-On *disk* a project definition *file* is a YAML file loosley based upon the 
-[Python Sake](http://tonyfischetti.github.io/sake/) format. For example:
+On *disk* a project definition *file* is a YAML file loosley based upon 
+the [Python Sake](http://tonyfischetti.github.io/sake/) format. In this 
+example, the reply to this REST request is essentially a project 
+definition file as it would be found on the disk in the project workspace. 
 
 ```yaml
-# Example Project definition for the 'Measuring Heyting algebras' paper
+jsonExamples:
+  projectDefinition:
+    title: Project definition for the 'Measuring Heyting algebras' paper
+    httpRoutes:
+      route: /projects/measuringHeyting/project.yaml
+      action: GET
+---
 
 description: |
   The Measuring Heyting algebras paper looks at...
@@ -53,9 +61,9 @@ jsonTypes:
   projectDefinition:
     description: string
     targets:
-      __dictionary__:
+      _dictionary_:
         help: string
         dependencies:
-          __array__: string
+          _array_: string
         worker: string
 ```
