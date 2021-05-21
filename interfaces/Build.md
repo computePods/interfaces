@@ -44,15 +44,17 @@ jsonSchemaDefs:
   taskStatus:
     description: The status of a single build task
     type: object
+    required: ['target', 'progress']
     properties:
       target:
         type: string
       progress:
-        type: int
+        type: integer
       dependencies:
         description: An array of dependent tasks
         type: array
-        items: string
+        items:
+          type: string
 ```
 
 ## Getting the status of a single build task
@@ -131,7 +133,7 @@ jsonExamples:
 
 ```yaml
 jsonSchemaPreamble:
-  $id : https://example.com/build.schema.json
+  $id : https://computePods.github.io/build.schema.json
   description : "The build schema for the ComputePods project"
   title : Build interface payloads
 ```
