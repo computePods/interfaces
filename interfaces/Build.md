@@ -34,18 +34,25 @@ httpRoutes:
 ### JSON buildTasks
 
 ```yaml
-jsonTypes:
+jsonSchemaDefs:
   buildTasks:
-    _description_ : An array of build task status objects
-    _array_: taskStatus
+    description : An array of build task status objects
+    type: array
+    items: 
+      $ref: "#/$defs/taskStatus"
 
   taskStatus:
-    _description_: The status of a single build task
-    target: string
-    progress: int
-    dependencies:
-      _description_: An array of dependent tasks
-      _array_: string
+    description: The status of a single build task
+    type: object
+    properties:
+      target:
+        type: string
+      progress:
+        type: int
+      dependencies:
+        description: An array of dependent tasks
+        type: array
+        items: string
 ```
 
 ## Getting the status of a single build task
@@ -123,9 +130,15 @@ jsonExamples:
 ### JSON schema preamble
 
 ```yaml
-jsonTypes:
-  _$id_ : https://example.com/build.schema.json
-  _description_ : "The build schema for the ComputePods project"
-  _title_ : Build interface payloads
+jsonSchemaPreamble:
+  $id : https://example.com/build.schema.json
+  description : "The build schema for the ComputePods project"
+  title : Build interface payloads
 ```
+
+## Included interfaces
+
+Include.Interface: [Files](Files.md)
+
+Include.Interface: [anInterface2](anInterface2.md)
 

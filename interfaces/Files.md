@@ -31,12 +31,18 @@ A `workspaceTree` is a recursive JSON structure which captures a
 "directory's" contained sub-directories as well as files. 
 
 ```yaml
-jsonSchema:
+jsonSchemaDefs:
   workspaceTree:
-    directories: 
-      _dictionary_: workspaceTree
-    files:
-     _dictionary_: string
+    type: object
+    properties:
+      directories:
+        type: dictionary
+        items:
+          $ref: "#/$defs/workspaceTree"
+      files:
+        type: dictionary
+        items:
+          type: string
 ```
 
 **Question**: how do get the types of a given file? Do we simply rely on 

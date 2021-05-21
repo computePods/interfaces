@@ -19,12 +19,16 @@ httpRoutes:
 ### JSON logfile structures
 
 ```yaml
-jsonSchema:
+jsonSchemaDefs:
   logfileJson:
-    lines:
-      _array_: string
+    type: object
+    properties:
+      lines:
+        type: array
+        items: string
     
 ```
+
 where a <[taskPath](Build.md#task-paths)> is ..
 
 ### Example `logFileJson`

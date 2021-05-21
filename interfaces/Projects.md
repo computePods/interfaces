@@ -57,13 +57,22 @@ and the name of a ComputePods worker who has the competence to build this
 target. 
 
 ```yaml
-jsonSchema:
+jsonSchemaDefs:
   projectDefinition:
-    description: string
-    targets:
-      _dictionary_:
-        help: string
-        dependencies:
-          _array_: string
-        worker: string
+    type: object
+    properties:
+      description:
+        type: string
+      targets:
+        type: dictionary
+        items:
+          type: object
+          properties: 
+            help:
+              type: string
+            dependencies:
+              type: array
+              items: string
+            worker:
+              type: string
 ```
