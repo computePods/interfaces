@@ -57,7 +57,7 @@ and the name of a ComputePods worker who has the competence to build this
 target. 
 
 ```yaml
-jsonTypes:
+jsonSchema:
   projectDefinition:
     description: string
     targets:

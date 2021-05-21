@@ -31,7 +31,7 @@ A `workspaceTree` is a recursive JSON structure which captures a
 "directory's" contained sub-directories as well as files. 
 
 ```yaml
-jsonTypes:
+jsonSchema:
   workspaceTree:
     directories: 
       _dictionary_: workspaceTree

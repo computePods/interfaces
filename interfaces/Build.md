@@ -36,12 +36,15 @@ httpRoutes:
 ```yaml
 jsonTypes:
   buildTasks:
+    _description_ : An array of build task status objects
     _array_: taskStatus
 
   taskStatus:
+    _description_: The status of a single build task
     target: string
     progress: int
     dependencies:
+      _description_: An array of dependent tasks
       _array_: string
 ```
 
@@ -117,5 +120,12 @@ jsonExamples:
     - anOther/task
 ```
 
+### JSON schema preamble
 
+```yaml
+jsonTypes:
+  _$id_ : https://example.com/build.schema.json
+  _description_ : "The build schema for the ComputePods project"
+  _title_ : Build interface payloads
+```
 

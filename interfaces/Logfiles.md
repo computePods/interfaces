@@ -19,7 +19,7 @@ httpRoutes:
 ### JSON logfile structures
 
 ```yaml
-jsonTypes:
+jsonSchema:
   logfileJson:
     lines:
       _array_: string
