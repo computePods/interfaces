@@ -54,7 +54,7 @@ jsonSchemaDefs:
         description: An array of dependent tasks
         type: array
         items:
-          type: string
+         type: string
 ```
 
 ## Getting the status of a single build task
@@ -129,13 +129,18 @@ jsonExamples:
     - anOther/task
 ```
 
-### JSON schema preamble
+### JSON schema preambles
 
 ```yaml
-jsonSchemaPreamble:
-  $id : https://computePods.github.io/build.schema.json
-  description : "The build schema for the ComputePods project"
-  title : Build interface payloads
+jsonSchemaPreambles:
+  buildTasks:
+    $id : https://computePods.github.io/build.schema.json
+    description : "The buildTasks schema for the ComputePods project"
+    title : BuildTasks
+  taskStatus:
+    $id : https://computePods.github.io/build.schema.json
+    description : "The taskStatus schema for the ComputePods project"
+    title : TasksStatus
 ```
 
 ## Included interfaces
