@@ -1,2 +1,8 @@
 pydantic: True
-ajv: True
+ajv:
+  parse: True
+  serialize: True
+  options:
+    strict: True
+    allErrors: True
+    
