@@ -25,7 +25,8 @@ jsonSchemaDefs:
     properties:
       lines:
         type: array
-        items: string
+        items:
+          type: string
     
 ```
 

@@ -72,7 +72,8 @@ jsonSchemaDefs:
               type: string
             dependencies:
               type: array
-              items: string
+              items: 
+                type: string
             worker:
               type: string
 ```

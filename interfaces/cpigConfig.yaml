@@ -1,8 +1,11 @@
-pydantic: True
-ajv:
-  parse: True
-  serialize: True
-  options:
-    strict: True
-    allErrors: True
-    
+genSchema:
+  pydantic: {}
+  ajv:
+    ajvOptions:
+      strict: True
+      allErrors: True
+genExamples:
+  pythonExamples: {}
+  javaScriptExamples: {}
+  mockServiceWorkers: {}
+ 
