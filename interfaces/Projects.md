@@ -10,14 +10,16 @@ build targets.
 
 ```yaml
 httpRoutes:
-  - route: /projects/<workspacePath>/<project>
-    action: GET
+  getProject:
+    route: /projects/<workspacePath>/<project>
+    actions: 
+      - GET
     response: projectDefinition
 ```
 
 ### Project definition files
 
-On *disk* a project definition *file* is a YAML file loosley based upon 
+On *disk* a project definition *file* is a YAML file loosely based upon 
 the [Python Sake](http://tonyfischetti.github.io/sake/) format. In this 
 example, the reply to this REST request is essentially a project 
 definition file as it would be found on the disk in the project workspace. 

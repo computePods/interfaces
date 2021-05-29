@@ -14,8 +14,10 @@ This means that there is no direct response.
 
 ```yaml
 httpRoutes:
-  - route: /build/<workspacePath>/<project>/<target>
-    action: GET
+  buildStart: 
+    route: /build/start/<workspacePath>/<project>/<target>
+    actions:
+      - GET
     response: none
 ```
 
@@ -26,8 +28,10 @@ relative to the user's "commons" directory.
 
 ```yaml
 httpRoutes:
-  - route: /build/current
-    action: GET
+  getBuildStatus:
+    route: /build/current
+    actions:
+      - GET
     response: buildTasks
 ```
 
@@ -57,12 +61,14 @@ jsonSchemaDefs:
          type: string
 ```
 
-## Getting the status of a single build task
+## Getting the status of a single build task 
 
 ```yaml
 httpRoutes:
-  - route: /build/status/<taskPath>
-    action: GET
+  getTargetStatus: 
+    route: /build/status/<taskPath>
+    actions:
+      - GET
     response: taskStatus
 ```
 
@@ -72,19 +78,20 @@ Task paths are essentially Unix/Web paths (using the `/` separators)
 relative to a project build target. 
 
 A taskPath consists of a <[workspacePath](Files#workspace-paths)>, a 
-of the extea <target>, followed by subsequent "(sub)directories" which are 
-of the extepart extended dependency hierarchy for that build target. 
+`<project>`, a `<target>` in the project, followed by subsequent 
+"(sub)directories" which are part extended dependency hierarchy for that 
+build target. 
 
 **Question** Cyclic builds, such as, for example, ConTeXt documents, will 
 have multiple "copies" of a dependency. One copy for each "time" the build 
 has to proceed "around the cycle". These copies will be distinguished by 
 "level-decorators" (cycle numbers). We need to make sure the hierarchy 
 names of these "(sub)directories" remains stable as the build goes around 
-a cycle multiple times. ***How do we do this?***
+a cycle multiple times. ***How do we do this?*** 
 
-## Examples
+## Examples 
 
-### Example taskStatus
+### Example taskStatus 
 
 ```yaml
 jsonExamples:

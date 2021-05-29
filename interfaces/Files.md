@@ -16,8 +16,10 @@ access.
 
 ```yaml
 httpRoutes:
-  - route: /files/<workspacePath>
-    action: GET
+  listFiles:
+    route: /files/<workspacePath>
+    actions:
+      - GET
     response: workspaceTree
 ```
 ### Workspace Paths
@@ -35,6 +37,8 @@ jsonSchemaDefs:
   workspaceTree:
     type: object
     properties:
+      entityType: 
+        $ref: "#/$defs/entityType"
       directories:
         type: dictionary
         items:
@@ -42,12 +46,19 @@ jsonSchemaDefs:
       files:
         type: dictionary
         items:
-          type: string
+          $ref: "#/$defs/entityType"
 ```
 
-**Question**: how do get the types of a given file? Do we simply rely on 
-an extension mapping? 
+**Question**: how do we get the types of a given file? Do we simply rely 
+on an extension mapping? 
 
+**Answer**: The MajorDomo server includes the file type as the 
+[`entityType`](Utils.md#entity-types) *value* of the files dictionary. The 
+browser client then uses the `entityInterfaceMapping` to understand which 
+(server) interface should be used to obtain an artefact of the given type. 
+The client code then wraps the entity returned by the server in a 
+particular type of (Mithril) component which knows how to display and 
+interact with the returned entity. 
 
 ### Example workspaceTree
 
@@ -80,3 +91,7 @@ files:
   - measuringHeyting.tex
 
 ```
+
+## Includes
+
+Interface.Include [Utils](Utils.md)
