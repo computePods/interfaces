@@ -11,7 +11,7 @@ as a collection of lines.
 
 ```yaml
 httpRoutes:
-  getLogfile:
+  logfiles:
     route: /logfile/<taskPath>
     actions:
       - GET

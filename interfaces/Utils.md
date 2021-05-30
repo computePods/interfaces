@@ -24,9 +24,19 @@ jsonSchemaDefs:
    entityInterfaceMapping:
      type: dictionary
      items:
-       type: string
+       $ref: "#/$defs/mountPoint"
    entityType:
-     type: string
+     type: object
+     properties:
+       entityType:
+         enum:
+           - logFile
+           - projectFile
+           - directory
+           - file
+           - task
+       url:
+         type: string
    mountPoint:
      type: string
 ```
@@ -46,11 +56,11 @@ jsonExamples:
 # The following is the entity type to interface route mapping
 # which is currently understood by the MajorDomo server
 
-logFile:     getLogfile
-projectFile: getProject
+logFile:     logfiles
+projectFile: projects
 directory:   listFiles
 file:        listFiles
-task:        buildStatus
+task:        targetStatus
 
 ``` 
 

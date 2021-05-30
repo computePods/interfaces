@@ -10,7 +10,7 @@ build targets.
 
 ```yaml
 httpRoutes:
-  getProject:
+  projects:
     route: /projects/<workspacePath>/<project>
     actions: 
       - GET

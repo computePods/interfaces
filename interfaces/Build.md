@@ -28,7 +28,7 @@ relative to the user's "commons" directory.
 
 ```yaml
 httpRoutes:
-  getBuildStatus:
+  buildStatus:
     route: /build/current
     actions:
       - GET
@@ -65,7 +65,7 @@ jsonSchemaDefs:
 
 ```yaml
 httpRoutes:
-  getTargetStatus: 
+  targetStatus: 
     route: /build/status/<taskPath>
     actions:
       - GET
