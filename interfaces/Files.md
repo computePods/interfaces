@@ -2,15 +2,15 @@
 
 <!-- toc -->
 
-The **Files** interface provides a way for the MajorDomo UI to access and 
-list the currently known project files. 
+The **Files** interface provides a way for the MajorDomo UI to access and
+list the currently known project files.
 
-Project files consist of (sub)directories, original project "source" 
-files, as well as project definition files. 
+Project files consist of (sub)directories, original project "source"
+files, as well as project definition files.
 
-User "workspaces" are simply directory trees located in the user's 
-personal "commons" directory to which the ComputePods MajorDomo server has 
-access. 
+User "workspaces" are simply directory trees located in the user's
+personal "commons" directory to which the ComputePods MajorDomo server has
+access.
 
 ## Listing directories and files
 
@@ -24,20 +24,20 @@ httpRoutes:
 ```
 ### Workspace Paths
 
-Workspace paths are essentially Unix/Web paths (using the `/` separator) 
-relative to the user's personal "commons" directory. 
+Workspace paths are essentially Unix/Web paths (using the `/` separator)
+relative to the user's personal "commons" directory.
 
 ### JSON workspaceTree
 
-A `workspaceTree` is a recursive JSON structure which captures a 
-"directory's" contained sub-directories as well as files. 
+A `workspaceTree` is a recursive JSON structure which captures a
+"directory's" contained sub-directories as well as files.
 
 ```yaml
 jsonSchemaDefs:
   workspaceTree:
     type: object
     properties:
-      entityType: 
+      entityType:
         $ref: "#/$defs/entityType"
       directories:
         type: dictionary
@@ -49,16 +49,16 @@ jsonSchemaDefs:
           $ref: "#/$defs/entityType"
 ```
 
-**Question**: how do we get the types of a given file? Do we simply rely 
-on an extension mapping? 
+**Question**: how do we get the types of a given file? Do we simply rely
+on an extension mapping?
 
-**Answer**: The MajorDomo server includes the file type as the 
-[`entityType`](Utils.md#entity-types) *value* of the files dictionary. The 
-browser client then uses the `entityInterfaceMapping` to understand which 
-(server) interface should be used to obtain an artefact of the given type. 
-The client code then wraps the entity returned by the server in a 
-particular type of (Mithril) component which knows how to display and 
-interact with the returned entity. 
+**Answer**: The MajorDomo server includes the file type as the
+[`entityType`](Utils.md#entity-types) *value* of the files dictionary. The
+browser client then uses the `entityInterfaceMapping` to understand which
+(server) interface should be used to obtain an artefact of the given type.
+The client code then wraps the entity returned by the server in a
+particular type of (Mithril) component which knows how to display and
+interact with the returned entity.
 
 ### Example workspaceTree
 
@@ -67,7 +67,9 @@ jsonExamples:
   workspaceTree:
     title: Measuring Heyting Algebras workspace
     httpRoutes:
-      route: /files/measuringHeyting
+      route:
+        mountPoint:    /files
+        workspacePath: measuringHeyting
       action: GET
 
 ---

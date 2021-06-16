@@ -2,9 +2,9 @@
 
 <!-- toc -->
 
-The **Projects** interface provides the MajorDomo UI with a list of 
-existing Project descriptions for a user, together with the associated 
-build targets. 
+The **Projects** interface provides the MajorDomo UI with a list of
+existing Project descriptions for a user, together with the associated
+build targets.
 
 ## Getting project definitions
 
@@ -12,24 +12,27 @@ build targets.
 httpRoutes:
   projects:
     route: /projects/<workspacePath>/<project>
-    actions: 
+    actions:
       - GET
     response: projectDefinition
 ```
 
 ### Project definition files
 
-On *disk* a project definition *file* is a YAML file loosely based upon 
-the [Python Sake](http://tonyfischetti.github.io/sake/) format. In this 
-example, the reply to this REST request is essentially a project 
-definition file as it would be found on the disk in the project workspace. 
+On *disk* a project definition *file* is a YAML file loosely based upon
+the [Python Sake](http://tonyfischetti.github.io/sake/) format. In this
+example, the reply to this REST request is essentially a project
+definition file as it would be found on the disk in the project workspace.
 
 ```yaml
 jsonExamples:
   projectDefinition:
     title: Project definition for the 'Measuring Heyting algebras' paper
     httpRoutes:
-      route: /projects/measuringHeyting/project.yaml
+      route:
+        mountPoint:    /projects
+        workspacePath: measuringHeyting
+        project:       project.yaml
       action: GET
 ---
 
@@ -52,11 +55,11 @@ targets:
 
 ### JSON project definition
 
-A project definition is a string description together with a dictionary of 
-targets. Each target key is the name of a target. Each target item 
-consists of a help string, a list of known (top-level file) dependencies, 
-and the name of a ComputePods worker who has the competence to build this 
-target. 
+A project definition is a string description together with a dictionary of
+targets. Each target key is the name of a target. Each target item
+consists of a help string, a list of known (top-level file) dependencies,
+and the name of a ComputePods worker who has the competence to build this
+target.
 
 ```yaml
 jsonSchemaDefs:
@@ -69,12 +72,12 @@ jsonSchemaDefs:
         type: dictionary
         items:
           type: object
-          properties: 
+          properties:
             help:
               type: string
             dependencies:
               type: array
-              items: 
+              items:
                 type: string
             worker:
               type: string
