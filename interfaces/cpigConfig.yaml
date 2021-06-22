@@ -10,3 +10,4 @@ genExamples:
   mockServiceWorkers: {}
 genHttpRoutes:
   mithrilConnectors: {}
+  fastApiRoutes: {}
