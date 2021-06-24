@@ -44,7 +44,7 @@ jsonExamples:
     httpRoutes:
       route:
         mountPoint:    /logfile
-        workspacePath: a/workspace/path
+        workspacePath: /a/workspace/path
         project:       aProject
         target:        aTarget
         taskPath:      an/example/log
