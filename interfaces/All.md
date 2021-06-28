@@ -1,7 +1,7 @@
 # All interfaces
 
-This interface definition file simply includes all of the other (root) 
-interface definitions. 
+This interface definition file simply includes all of the other (root)
+interface definitions.
 
 ## Included interfaces
 
@@ -14,3 +14,5 @@ Include.Interface: [Logfiles](Logfiles.md)
 Include.Interface: [Projects](Projects.md)
 
 Include.Interface: [Utils](Utils.md)
+
+Include.Interface: [WebSocket](WebSocket.md)
