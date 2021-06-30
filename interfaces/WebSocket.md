@@ -40,7 +40,7 @@ httpRoutes:
 ```yaml
 jsonSchemaDefs:
   websocket:
-    description: A wrapper around all of the other JSON schema
+    description: A notification that a particular Artefact has changed.
     type: object
     properties:
       mountPoint:
@@ -53,7 +53,7 @@ jsonSchemaDefs:
           type: string
       notificationType:
         enum:
-        	- Add
-        	- Remove
-        	- Changed
+        - Added
+        - Removed
+        - Changed
 ```

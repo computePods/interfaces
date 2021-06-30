@@ -7,8 +7,11 @@ genSchema:
 genExamples:
   pythonExamples: {}
   javaScriptExamples: {}
-  mockServiceWorkers: {}
+  mockServerExamples: {}
+  mithrilExamples: {}
   fastApiExamples: {}
 genHttpRoutes:
+  httpRouteUtils: {}
   mithrilConnectors: {}
+  webSocket: {}
   fastApiRoutes: {}
