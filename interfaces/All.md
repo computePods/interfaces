@@ -5,6 +5,8 @@ interface definitions.
 
 ## Included interfaces
 
+Include.Interface: [BuildUI](BuildUI.md)
+
 Include.Interface: [Build](Build.md)
 
 Include.Interface: [Files](Files.md)

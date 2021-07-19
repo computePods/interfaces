@@ -1,15 +1,17 @@
-personal_ws-1.1 en 18 
+personal_ws-1.1 en 20 
 ComputePods
 ConTeXt
 JSON
 MajorDomo
 Mithril
 NATS
+RuleManager
 UI
 Utils
 WorkspacePaths
 YAML
 buildTasks
+canBuild
 logfile
 logfiles
 taskPath

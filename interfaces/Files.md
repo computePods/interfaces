@@ -2,8 +2,10 @@
 
 <!-- toc -->
 
-The **Files** interface provides a way for the MajorDomo UI to access and
-list the currently known project files.
+# Files HTTP interface
+
+The **Files** HTTP interface provides a way for the MajorDomo UI to access
+and list the currently known project files.
 
 Project files consist of (sub)directories, original project "source"
 files, as well as project definition files.
@@ -94,6 +96,68 @@ files:
 
 ```
 
-## Includes
+
+# Files NATS interface
+
+The **Files** NATS interface provides a way for the federation of
+ComputePods to monitor changes in artefact files.
+
+There are two primary NATS subject hierarchies, `fileChanged`, and
+`watchRequest`.
+
+## File changes
+
+```yaml
+natsSubjects:
+  fileChanges:
+    subject: fileChanged.<reason>.<pod>.[dottedPath]
+    message: fileChanged
+```
+
+```yaml
+#jsonSchemaDefs:
+#  fileChanged:
+#    type: object
+#    properties:
+#      reason:
+#        type: string
+#      pod:
+#        type: string
+#      path:
+#        type: string
+```
+
+**Question**: Should this file change message also include the SHA256
+hash? What about the file stats (modification time, file size?)
+
+**Answer**: yes. We need to define a `fileStats` JSON type.
+
+## File watches
+
+```yaml
+natsSubjects:
+  watchRequest:
+    subject: watchRequest.<pod>
+    message: watchRequest
+```
+
+```yaml
+#jsonSchemaDefs:
+#  watchRequest:
+#    type: object
+#    properties:
+#      pod:
+#        type: string
+#      baseSubject:
+#        type: string
+#      paths:
+#        type: array
+#        items:
+#          type: string
+```
+
+
+# Includes
 
 Interface.Include [Utils](Utils.md)
+

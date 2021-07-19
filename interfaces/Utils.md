@@ -57,13 +57,17 @@ jsonExamples:
 # The following is the entity type to interface route mapping
 # which is currently understood by the MajorDomo server
 
+task:        targetStatus
+
+```
+
+```
 logFile:     logfiles
 projectFile: projects
 directory:   listFiles
 file:        listFiles
-task:        targetStatus
-
 ```
+
 
 Where:
 

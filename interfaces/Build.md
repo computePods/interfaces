@@ -1,143 +1,70 @@
-# MajorDomo build interface
+# MajorDomo build interface (NATS)
 
 <!-- toc -->
 
-The **Build** interface provides the MajorDomo UI with access to the
-current build progress as well as dependency graph for a given project
-target.
+The **Build** interface provides a federation of ComputePods the ability
+to communicate build requirements between different components.
 
-## Requesting the build of a project target
-
-*Requesting* the build of a project target will typically take a number of
-minutes. As such, the *request* for a build is an *asynchronous* action.
-This means that there is no direct response.
+## How to build
 
 ```yaml
-httpRoutes:
-  buildStart:
-    route: /build/start/<workspacePath>/<project>/<target>
-    actions:
-      - GET
-    response: none
+natsSubjects:
+  howToBuild:
+   subject: build.howTo.<artefactType>
+   message: howToBuild
 ```
 
-where <[WorkspacePaths](Files.md#workspace-paths)> are Unix/Web paths
-relative to the user's "commons" directory.
+A "how to build" message is a collection of Artefact Types. The "goal"
+artefact type represents the type of artefact that the system needs to
+learn how to build. The "have" property is a list of artefact types which
+the system either has, or knows how to obtain.
 
-## Getting a list of current build tasks
-
-```yaml
-httpRoutes:
-  buildStatus:
-    route: /build/current
-    actions:
-      - GET
-    response: buildTasks
-```
-
-### JSON buildTasks
+The RuleManager component of one or more Chefs is expected to respond with
+a "can build from" message, registering the fact that this particular Chef
+knows how to build this type of artefact type.
 
 ```yaml
 jsonSchemaDefs:
-  buildTasks:
-    description : An array of build task status objects
-    type: array
-    items:
-      $ref: "#/$defs/taskStatus"
-
-  taskStatus:
-    description: The status of a single build task
+  howToBuild:
     type: object
-    required: ['target', 'progress']
     properties:
-      target:
+      goal:
         type: string
-      progress:
-        type: integer
-      dependencies:
-        description: An array of dependent tasks
+      have:
         type: array
         items:
-         type: string
+          type: string
 ```
 
-## Getting the status of a single build task
+## Can build from
 
 ```yaml
-httpRoutes:
-  targetStatus:
-    route: /build/status/<workspacePath>/<project>/<target>/<taskPath>
-    actions:
-      - GET
-    response: taskStatus
+natsSubjects:
+  canBuildFrom:
+    subject: build.from.<artefactType>
+    message: canBuildFrom
 ```
 
-### Task paths
-
-Task paths are essentially Unix/Web paths (using the `/` separators)
-relative to a project build target.
-
-A taskPath consists of a <[workspacePath](Files#workspace-paths)>, a
-`<project>`, a `<target>` in the project, followed by subsequent
-"(sub)directories" which are part extended dependency hierarchy for that
-build target.
-
-**Question** Cyclic builds, such as, for example, ConTeXt documents, will
-have multiple "copies" of a dependency. One copy for each "time" the build
-has to proceed "around the cycle". These copies will be distinguished by
-"level-decorators" (cycle numbers). We need to make sure the hierarchy
-names of these "(sub)directories" remains stable as the build goes around
-a cycle multiple times. ***How do we do this?***
-
-## Examples
-
-### Example taskStatus
+A "can build from" message is a collection of Artefact Types. The
+"canBuild" artefact type represents the type of artefact that this Chef
+knows how to build. The "from" property is a list of artefact types which
+are required in the build. The "auxiliaries" property is a list of
+artefact types which will be produced *in addition* to the main built
+type.
 
 ```yaml
-jsonExamples:
-  taskStatus:
-    title: example task status
-    httpRoutes:
-      route:
-        mountPoint:    /build/status
-        workspacePath: /a/workspace/path
-        project:       aProject
-        target:        aBuildTarget
-        taskPath:      example
-      action: GET
----
-
-target: example
-
-progress: 50
-
-dependencies:
-  - example1
-  - anOther/task
-
-```
-
-### Example buildTasks
-
-Note that in this example we *have* a dependency cycle.
-
-```yaml
-jsonExamples:
-  buildTasks:
-    title: example list of build tasks
-    httpRoutes:
-      route:
-        mountPoint: /build/current
-      action: GET
-
----
-- target: example1
-  progress: 30
-  dependencies:
-    - example
-- target: example
-  progress: 50
-  dependencies:
-    - example1
-    - anOther/task
+jsonSchemaDefs:
+  canBuildFrom:
+    type: object
+    properties:
+      canBuild:
+        type: string
+      from:
+        type: array
+        items:
+          type: string
+      auxiliaries:
+        type: array
+        items:
+          type: string
 ```
