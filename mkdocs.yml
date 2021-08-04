@@ -1,0 +1,16 @@
+site_name: ComputePods Interfaces
+
+site_url: https://computepods.github.io/interfaces/
+
+repo_url: https://github.com/computePods/interfaces
+
+docs_dir: interfaces
+
+plugins:
+  - search
+  - compute-pods
+  - awesome-pages
+  - mkdocstrings
+
+theme:
+  name: material
