@@ -1,0 +1,18 @@
+genSchema:
+  pydantic: {}
+  ajv:
+    ajvOptions:
+      strict: True
+      allErrors: True
+genExamples:
+  pythonExamples: {}
+  javaScriptExamples: {}
+  mockServerExamples: {}
+  mithrilExamples: {}
+  fastApiExamples: {}
+genHttpRoutes:
+  httpRouteUtils: {}
+  mithrilConnectors: {}
+  fastApiRoutes: {}
+genNatsSubjects:
+  natsSubjects: {}

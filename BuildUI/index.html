@@ -1,0 +1,770 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://computepods.github.io/interfaces/BuildUI/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.1.11">
+    
+    
+      
+        <title>MajorDomo build UI interface (HTTP) - ComputePods Interfaces</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3754935a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#majordomo-build-ui-interface-http" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="/" title="ComputePods Interfaces" class="md-header__button md-logo" aria-label="ComputePods Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ComputePods Interfaces
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MajorDomo build UI interface (HTTP)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/computePods/interfaces/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="/" title="ComputePods Interfaces" class="md-nav__button md-logo" aria-label="ComputePods Interfaces" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    ComputePods Interfaces
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/computePods/interfaces/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Compute Pods interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../All/" class="md-nav__link">
+        All interfaces
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Build/" class="md-nav__link">
+        MajorDomo build interface (NATS)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MajorDomo build UI interface (HTTP)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        MajorDomo build UI interface (HTTP)
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-the-build-of-a-project-target" class="md-nav__link">
+    Requesting the build of a project target
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-current-build-tasks" class="md-nav__link">
+    Getting a list of current build tasks
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of current build tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-buildtasks" class="md-nav__link">
+    JSON buildTasks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-status-of-a-single-build-task" class="md-nav__link">
+    Getting the status of a single build task
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting the status of a single build task">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-paths" class="md-nav__link">
+    Task paths
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-taskstatus" class="md-nav__link">
+    Example taskStatus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-buildtasks" class="md-nav__link">
+    Example buildTasks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Files/" class="md-nav__link">
+        MajorDomo original project files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../HeartBeat/" class="md-nav__link">
+        MajorDomo HeartBeat interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Logfiles/" class="md-nav__link">
+        MajorDomo logfiles interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Notifications/" class="md-nav__link">
+        MajorDomo notifications interface
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Projects/" class="md-nav__link">
+        MajorDomo project descriptions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Utils/" class="md-nav__link">
+        MajorDomo interface utilities
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-the-build-of-a-project-target" class="md-nav__link">
+    Requesting the build of a project target
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-a-list-of-current-build-tasks" class="md-nav__link">
+    Getting a list of current build tasks
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting a list of current build tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-buildtasks" class="md-nav__link">
+    JSON buildTasks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-status-of-a-single-build-task" class="md-nav__link">
+    Getting the status of a single build task
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting the status of a single build task">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-paths" class="md-nav__link">
+    Task paths
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-taskstatus" class="md-nav__link">
+    Example taskStatus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-buildtasks" class="md-nav__link">
+    Example buildTasks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/computePods/interfaces/edit/master/docs/BuildUI.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="majordomo-build-ui-interface-http">MajorDomo build UI interface (HTTP)</h1>
+<!-- toc -->
+
+<p>The <strong>BuildUI</strong> interface provides the MajorDomo UI with access to the
+current build progress as well as dependency graph for a given project
+target.</p>
+<h2 id="requesting-the-build-of-a-project-target">Requesting the build of a project target</h2>
+<p><em>Requesting</em> the build of a project target will typically take a number of
+minutes. As such, the <em>request</em> for a build is an <em>asynchronous</em> action.
+This means that there is no direct response.</p>
+<pre><code class="language-yaml">httpRoutes:
+  buildStart:
+    route: /build/start/&lt;workspacePath&gt;/&lt;project&gt;/&lt;target&gt;
+    actions:
+      - GET
+    response: none
+</code></pre>
+<p>where &lt;<a href="../Files/#workspace-paths">WorkspacePaths</a>&gt; are Unix/Web paths
+relative to the user's "commons" directory.</p>
+<h2 id="getting-a-list-of-current-build-tasks">Getting a list of current build tasks</h2>
+<pre><code class="language-yaml">httpRoutes:
+  buildStatus:
+    route: /build/current
+    actions:
+      - GET
+    response: buildTasks
+</code></pre>
+<h3 id="json-buildtasks">JSON buildTasks</h3>
+<pre><code class="language-yaml">jsonSchemaDefs:
+  buildTasks:
+    description : An array of build task status objects
+    type: array
+    items:
+      $ref: &quot;#/$defs/taskStatus&quot;
+
+  taskStatus:
+    description: The status of a single build task
+    type: object
+    required: ['target', 'progress']
+    properties:
+      target:
+        type: string
+      progress:
+        type: integer
+      dependencies:
+        description: An array of dependent tasks
+        type: array
+        items:
+         type: string
+</code></pre>
+<h2 id="getting-the-status-of-a-single-build-task">Getting the status of a single build task</h2>
+<pre><code class="language-yaml">httpRoutes:
+  targetStatus:
+    route: /build/status/&lt;workspacePath&gt;/&lt;project&gt;/&lt;target&gt;/&lt;taskPath&gt;
+    actions:
+      - GET
+    response: taskStatus
+</code></pre>
+<h3 id="task-paths">Task paths</h3>
+<p>Task paths are essentially Unix/Web paths (using the <code>/</code> separators)
+relative to a project build target.</p>
+<p>A taskPath consists of a &lt;<a href="Files#workspace-paths">workspacePath</a>&gt;, a
+<code>&lt;project&gt;</code>, a <code>&lt;target&gt;</code> in the project, followed by subsequent
+"(sub)directories" which are part extended dependency hierarchy for that
+build target.</p>
+<p><strong>Question</strong> Cyclic builds, such as, for example, ConTeXt documents, will
+have multiple "copies" of a dependency. One copy for each "time" the build
+has to proceed "around the cycle". These copies will be distinguished by
+"level-decorators" (cycle numbers). We need to make sure the hierarchy
+names of these "(sub)directories" remains stable as the build goes around
+a cycle multiple times. <strong><em>How do we do this?</em></strong></p>
+<h2 id="examples">Examples</h2>
+<h3 id="example-taskstatus">Example taskStatus</h3>
+<pre><code class="language-yaml">jsonExamples:
+  taskStatus:
+    title: example task status
+    httpRoutes:
+      route:
+        mountPoint:    /build/status
+        workspacePath: /a/workspace/path
+        project:       aProject
+        target:        aBuildTarget
+        taskPath:      example
+      action: GET
+---
+
+target: example
+
+progress: 50
+
+dependencies:
+  - example1
+  - anOther/task
+
+</code></pre>
+<h3 id="example-buildtasks">Example buildTasks</h3>
+<p>Note that in this example we <em>have</em> a dependency cycle.</p>
+<pre><code class="language-yaml">jsonExamples:
+  buildTasks:
+    title: example list of build tasks
+    httpRoutes:
+      route:
+        mountPoint: /build/current
+      action: GET
+
+---
+- target: example1
+  progress: 30
+  dependencies:
+    - example
+- target: example
+  progress: 50
+  dependencies:
+    - example1
+    - anOther/task
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Build/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MajorDomo build interface (NATS)" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              MajorDomo build interface (NATS)
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Files/" class="md-footer__link md-footer__link--next" aria-label="Next: MajorDomo original project files" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              MajorDomo original project files
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        &bull;
+<a href="https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin/" target="_blank">MkDocs Awesome Pages</a>
+&bull;
+<a href="https://mkdocstrings.github.io/" target="_blank">MkDocStrings</a>
+&bull;
+<a href="https://github.com/fralau/mkdocs-mermaid2-plugin" target="_blank">MkDocs Mermaid2</a>
+&bull;
+<a href="https://www.mkdocs.org" target="_blank">MkDocs</a>
+
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+      
+    
+  </body>
+</html>
