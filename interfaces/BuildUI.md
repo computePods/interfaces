@@ -1,6 +1,4 @@
-# MajorDomo build UI interface (HTTP)
-
-<!-- toc -->
+# Build UI interface (HTTP)
 
 The **BuildUI** interface provides the MajorDomo UI with access to the
 current build progress as well as dependency graph for a given project

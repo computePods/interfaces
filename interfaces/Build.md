@@ -1,11 +1,33 @@
-# MajorDomo build interface (NATS)
-
-<!-- toc -->
+# Build interface (NATS)
 
 The **Build** interface provides a federation of ComputePods the ability
 to communicate build requirements between different components.
 
-## How to build
+## Messages
+
+### Register artefact type
+
+```yaml
+natsSubjects:
+  registerArtefactType:
+    subject: artefact.register.type.<artefactType>
+    message: registerArtefactType
+```
+
+```yaml
+jsonSchemaDefs:
+  registerArtefactType:
+    type: object
+    properties:
+      name:
+        type: string
+      extensions:
+        type: array
+        items:
+          type: string
+```
+
+### How to build
 
 ```yaml
 natsSubjects:
@@ -36,7 +58,7 @@ jsonSchemaDefs:
           type: string
 ```
 
-## Can build from
+### Can build from
 
 ```yaml
 natsSubjects:

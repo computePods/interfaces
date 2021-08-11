@@ -1,7 +1,5 @@
 # ComputePods interfaces and architecture
 
-<!-- toc -->
-
 This project captures the ComputePods interfaces. These interfaces are
 heavily influenced by the overall ComputePods system architecture.
 
