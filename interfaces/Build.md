@@ -7,6 +7,8 @@ to communicate build requirements between different components.
 
 ### Register artefact type
 
+The build Artefact Types
+
 ```yaml
 natsSubjects:
   registerArtefactType:
