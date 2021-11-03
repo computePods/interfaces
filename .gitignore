@@ -1,2 +1,5 @@
+.pdm.toml
+ComputePodInterfaces.egg-info
+__pypackages__
 site
 dist
