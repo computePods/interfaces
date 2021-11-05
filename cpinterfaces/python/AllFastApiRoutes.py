@@ -7,9 +7,10 @@ def addAllInterface(appSelf) :
 
 
   def get_build_start(implFunc):
-    return appSelf.get(
+    return appSelf.add_api_route(
       '/build/start/{workspacePath}/{project}/{target}',
-      implFunc
+      implFunc,
+      methods=["GET"]
     )
 
   appSelf.get_build_start = get_build_start
@@ -29,9 +30,10 @@ def addAllInterface(appSelf) :
 
 
   def get_build_current(implFunc):
-    return appSelf.get(
+    return appSelf.add_api_route(
       '/build/current',
-      implFunc
+      implFunc,
+      methods=["GET"]
     )
 
   appSelf.get_build_current = get_build_current
@@ -50,22 +52,46 @@ def addAllInterface(appSelf) :
 
 
 
-  def get_build_status(implFunc):
-    return appSelf.get(
-      '/build/status/{workspacePath}/{project}/{target}/{taskPath}',
-      implFunc
+  def get_entity_interface_mapping(implFunc):
+    return appSelf.add_api_route(
+      '/entity/interface/mapping',
+      implFunc,
+      methods=["GET"]
     )
 
-  appSelf.get_build_status = get_build_status
+  appSelf.get_entity_interface_mapping = get_entity_interface_mapping
 
   """
   Example use:
 
-    @get_build_status
-    async def get_build_status_impl(workspacePath, project, target, taskPath) :
-      taskStatus = { .... }
-      # do something and then return taskStatus ...
-      return taskStatus
+    @get_entity_interface_mapping
+    async def get_entity_interface_mapping_impl() :
+      entityInterfaceMapping = { .... }
+      # do something and then return entityInterfaceMapping ...
+      return entityInterfaceMapping
+  """
+
+
+
+
+
+  def sse_heartBeat(implFunc):
+    return appSelf.add_api_route(
+      '/heartBeat',
+      implFunc,
+      methods=["SSE"]
+    )
+
+  appSelf.sse_heartBeat = sse_heartBeat
+
+  """
+  Example use:
+
+    @sse_heartBeat
+    async def sse_heartBeat_impl() :
+      heartBeat = { .... }
+      # do something and then return heartBeat ...
+      return heartBeat
   """
 
 
@@ -73,9 +99,10 @@ def addAllInterface(appSelf) :
 
 
   def get_files(implFunc):
-    return appSelf.get(
+    return appSelf.add_api_route(
       '/files/{workspacePath}',
-      implFunc
+      implFunc,
+      methods=["GET"]
     )
 
   appSelf.get_files = get_files
@@ -95,9 +122,10 @@ def addAllInterface(appSelf) :
 
 
   def get_logfile(implFunc):
-    return appSelf.get(
+    return appSelf.add_api_route(
       '/logfile/{workspacePath}/{project}/{target}/{taskPath}',
-      implFunc
+      implFunc,
+      methods=["GET"]
     )
 
   appSelf.get_logfile = get_logfile
@@ -116,54 +144,11 @@ def addAllInterface(appSelf) :
 
 
 
-  def get_projects(implFunc):
-    return appSelf.get(
-      '/projects/{workspacePath}/{project}',
-      implFunc
-    )
-
-  appSelf.get_projects = get_projects
-
-  """
-  Example use:
-
-    @get_projects
-    async def get_projects_impl(workspacePath, project) :
-      projectDefinition = { .... }
-      # do something and then return projectDefinition ...
-      return projectDefinition
-  """
-
-
-
-
-
-  def get_entity_interface_mapping(implFunc):
-    return appSelf.get(
-      '/entity/interface/mapping',
-      implFunc
-    )
-
-  appSelf.get_entity_interface_mapping = get_entity_interface_mapping
-
-  """
-  Example use:
-
-    @get_entity_interface_mapping
-    async def get_entity_interface_mapping_impl() :
-      entityInterfaceMapping = { .... }
-      # do something and then return entityInterfaceMapping ...
-      return entityInterfaceMapping
-  """
-
-
-
-
-
   def sse_notifications(implFunc):
-    return appSelf.sse(
+    return appSelf.add_api_route(
       '/notifications',
-      implFunc
+      implFunc,
+      methods=["SSE"]
     )
 
   appSelf.sse_notifications = sse_notifications
@@ -182,22 +167,69 @@ def addAllInterface(appSelf) :
 
 
 
-  def sse_heartBeat(implFunc):
-    return appSelf.sse(
-      '/heartBeat',
-      implFunc
+  def get_project(implFunc):
+    return appSelf.add_api_route(
+      '/project/{workspacePath}/{project}',
+      implFunc,
+      methods=["GET"]
     )
 
-  appSelf.sse_heartBeat = sse_heartBeat
+  appSelf.get_project = get_project
 
   """
   Example use:
 
-    @sse_heartBeat
-    async def sse_heartBeat_impl() :
-      heartBeat = { .... }
-      # do something and then return heartBeat ...
-      return heartBeat
+    @get_project
+    async def get_project_impl(workspacePath, project) :
+      projectDefinition = { .... }
+      # do something and then return projectDefinition ...
+      return projectDefinition
+  """
+
+
+
+
+
+  def get_projects(implFunc):
+    return appSelf.add_api_route(
+      '/projects',
+      implFunc,
+      methods=["GET"]
+    )
+
+  appSelf.get_projects = get_projects
+
+  """
+  Example use:
+
+    @get_projects
+    async def get_projects_impl() :
+      projectDefinition = { .... }
+      # do something and then return projectDefinition ...
+      return projectDefinition
+  """
+
+
+
+
+
+  def get_build_status(implFunc):
+    return appSelf.add_api_route(
+      '/build/status/{workspacePath}/{project}/{target}/{taskPath}',
+      implFunc,
+      methods=["GET"]
+    )
+
+  appSelf.get_build_status = get_build_status
+
+  """
+  Example use:
+
+    @get_build_status
+    async def get_build_status_impl(workspacePath, project, target, taskPath) :
+      taskStatus = { .... }
+      # do something and then return taskStatus ...
+      return taskStatus
   """
 
 

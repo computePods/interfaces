@@ -469,6 +469,78 @@ export const connectorMixins = {
 
 
 
+  "/project": function(
+    entityUrlParts, /* dict of path parts */
+  ) {
+    entityUrlParts['mountPoint'] = '/project'
+    var artefactPath = buildArtefactPath(entityUrlParts)
+    var theUrl       = buildUrl(entityUrlParts)
+    if (!theUrl) {
+      log.error("Could not build URL for:")
+      log.error(entityUrlParts)
+      return {
+        artefactPath: artefactPath,
+        entityType: '/project',
+        entityUrlParts: entityUrlParts,
+      }
+    }
+    var theModel = {
+      artefactPath: artefactPath,
+      entityType: '/project',
+      entityUrlParts: entityUrlParts,
+      "_getServerData": function() {
+        return m.request({
+          method: "GET",
+          url: theUrl,
+          
+        })
+      },
+      "getAllServerData": function() {
+        theModel.updateRequest = null
+        theModel._getServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            projectDefinition_validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      },
+      "getChangedServerData": function() {
+        theModel.updateRequest = null
+        theModel._getServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            projectDefinition_validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      }
+    }
+    return theModel
+  },
+
+
+
+
+
   "/entity/interface/mapping": function(
     entityUrlParts, /* dict of path parts */
   ) {

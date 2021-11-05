@@ -12,11 +12,10 @@ mountPointRouteParts = {
   "/build/current": [
   ],
   
-  "/build/status": [
-    'workspacePath',
-    'project',
-    'target',
-    'taskPath',
+  "/entity/interface/mapping": [
+  ],
+  
+  "/heartBeat": [
   ],
   
   "/files": [
@@ -30,18 +29,22 @@ mountPointRouteParts = {
     'taskPath',
   ],
   
-  "/projects": [
+  "/notifications": [
+  ],
+  
+  "/project": [
     'workspacePath',
     'project',
   ],
   
-  "/entity/interface/mapping": [
+  "/projects": [
   ],
   
-  "/notifications": [
-  ],
-  
-  "/heartBeat": [
+  "/build/status": [
+    'workspacePath',
+    'project',
+    'target',
+    'taskPath',
   ],
   
 }

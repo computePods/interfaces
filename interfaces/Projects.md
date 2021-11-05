@@ -6,12 +6,23 @@ The **Projects** interface provides the MajorDomo UI with a list of
 existing Project descriptions for a user, together with the associated
 build targets.
 
-## Getting project definitions
+## List projects
 
 ```yaml
 httpRoutes:
   projects:
-    route: /projects/<workspacePath>/<project>
+    route: /projects
+    actions:
+      - GET
+    response: projectDefinition
+```
+
+## Getting project definitions
+
+```yaml
+httpRoutes:
+  project:
+    route: /project/<workspacePath>/<project>
     actions:
       - GET
     response: projectDefinition
