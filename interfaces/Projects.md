@@ -17,6 +17,20 @@ httpRoutes:
     response: projectDefinition
 ```
 
+## JSON Project Lists
+
+```yaml
+jsonSchemaDefs:
+  projectList:
+    type: dictionary
+    items:
+      type: string
+```
+
+A project list is a dictionary whose keys are project names and whose
+values are the path to the project (which is used by the `cprsyncCtl` to
+determine which `rsync` requests to allow).
+
 ## Getting project definitions
 
 ```yaml

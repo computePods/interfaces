@@ -10,6 +10,7 @@ plugins:
   - search
   - compute-pods
   - awesome-pages
+  - mermaid2
   - mkdocstrings
 
 theme:
