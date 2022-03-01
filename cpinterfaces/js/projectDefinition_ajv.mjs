@@ -153,6 +153,12 @@ const schema = {
       },
       "type": "object"
     },
+    "projectList": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
     "registerArtefactType": {
       "properties": {
         "extensions": {

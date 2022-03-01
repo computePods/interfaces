@@ -67,6 +67,37 @@ def addAllNatsSubjects(appSelf) :
 
 
 
+  def subscribe_build_canFrom(artefactType=None):
+    wildCards = ""
+
+
+    if artefactType :
+      wildCards = wildCards + '.' + artefactType
+    else :
+      wildCards = wildCards + '.*'
+
+
+    def decoratorSubscribe(implFunc):
+      return appSelf.subscribe(
+        'build.canFrom'+wildCards,
+        cb=implFunc
+      )
+    return decoratorSubscribe
+
+  appSelf.subscribe_build_canFrom = subscribe_build_canFrom
+
+  """
+  Example use:
+
+    @subscribe_build_canFrom
+    async def subscribe_build_canFrom_impl(artefactType) :
+      canBuildFrom = { .... }
+      # do something and then return canBuildFrom ...
+      return canBuildFrom
+  """
+
+
+
   def subscribe_build_from(artefactType=None):
     wildCards = ""
 
@@ -91,9 +122,9 @@ def addAllNatsSubjects(appSelf) :
 
     @subscribe_build_from
     async def subscribe_build_from_impl(artefactType) :
-      canBuildFrom = { .... }
-      # do something and then return canBuildFrom ...
-      return canBuildFrom
+      buildDetails = { .... }
+      # do something and then return buildDetails ...
+      return buildDetails
   """
 
 
