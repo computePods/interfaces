@@ -159,6 +159,17 @@ const schema = {
       },
       "type": "object"
     },
+    "projectPath": {
+      "properties": {
+        "projectDir": {
+          "type": "string"
+        },
+        "projectName": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "registerArtefactType": {
       "properties": {
         "extensions": {

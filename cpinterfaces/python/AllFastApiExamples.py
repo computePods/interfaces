@@ -37,7 +37,13 @@ mountPointRouteParts = {
     'project',
   ],
   
+  "/project/add": [
+  ],
+  
   "/projects": [
+  ],
+  
+  "/project/remove": [
   ],
   
   "/build/status": [

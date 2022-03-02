@@ -24,6 +24,8 @@ import { logfileJson_validate } from './logfileJson_ajv.mjs'
 
 import { projectDefinition_validate } from './projectDefinition_ajv.mjs'
 
+import { projectPath_validate } from './projectPath_ajv.mjs'
+
 import { entityInterfaceMapping_validate } from './entityInterfaceMapping_ajv.mjs'
 
 import { notification_validate } from './notification_ajv.mjs'
@@ -455,6 +457,150 @@ export const connectorMixins = {
           log.debug("----------------------------------------------------")
           try {
             projectDefinition_validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      }
+    }
+    return theModel
+  },
+
+
+
+
+
+  "/project/add": function(
+    entityUrlParts, /* dict of path parts */
+  ) {
+    entityUrlParts['mountPoint'] = '/project/add'
+    var artefactPath = buildArtefactPath(entityUrlParts)
+    var theUrl       = buildUrl(entityUrlParts)
+    if (!theUrl) {
+      log.error("Could not build URL for:")
+      log.error(entityUrlParts)
+      return {
+        artefactPath: artefactPath,
+        entityType: '/project/add',
+        entityUrlParts: entityUrlParts,
+      }
+    }
+    var theModel = {
+      artefactPath: artefactPath,
+      entityType: '/project/add',
+      entityUrlParts: entityUrlParts,
+      "_postServerData": function() {
+        return m.request({
+          method: "POST",
+          url: theUrl,
+          
+        })
+      },
+      "postAllServerData": function() {
+        theModel.updateRequest = null
+        theModel._postServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            _validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      },
+      "postChangedServerData": function() {
+        theModel.updateRequest = null
+        theModel._postServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            _validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      }
+    }
+    return theModel
+  },
+
+
+
+
+
+  "/project/remove": function(
+    entityUrlParts, /* dict of path parts */
+  ) {
+    entityUrlParts['mountPoint'] = '/project/remove'
+    var artefactPath = buildArtefactPath(entityUrlParts)
+    var theUrl       = buildUrl(entityUrlParts)
+    if (!theUrl) {
+      log.error("Could not build URL for:")
+      log.error(entityUrlParts)
+      return {
+        artefactPath: artefactPath,
+        entityType: '/project/remove',
+        entityUrlParts: entityUrlParts,
+      }
+    }
+    var theModel = {
+      artefactPath: artefactPath,
+      entityType: '/project/remove',
+      entityUrlParts: entityUrlParts,
+      "_postServerData": function() {
+        return m.request({
+          method: "POST",
+          url: theUrl,
+          
+        })
+      },
+      "postAllServerData": function() {
+        theModel.updateRequest = null
+        theModel._postServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            _validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      },
+      "postChangedServerData": function() {
+        theModel.updateRequest = null
+        theModel._postServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            _validate(response)
           } catch (err) {
             log.error(err)
           }

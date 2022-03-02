@@ -10,7 +10,7 @@ build targets.
 
 ```yaml
 httpRoutes:
-  projects:
+  projectList:
     route: /projects
     actions:
       - GET
@@ -30,6 +30,39 @@ jsonSchemaDefs:
 A project list is a dictionary whose keys are project names and whose
 values are the path to the project (which is used by the `cprsyncCtl` to
 determine which `rsync` requests to allow).
+
+## Adding projects
+
+```yaml
+httpRoutes:
+  projectAdd:
+    route: /project/add
+    actions:
+      - POST
+    body: projectPath
+```
+
+```yaml
+jsonSchemaDefs:
+  projectPath:
+    type: object
+    properties:
+      projectName:
+        type: string
+      projectDir:
+        type: string
+```
+
+## Removing projects
+
+```yaml
+httpRoutes:
+  projectRemove:
+    route: /project/remove
+    actions:
+      - POST
+    body: projectPath
+```
 
 ## Getting project definitions
 

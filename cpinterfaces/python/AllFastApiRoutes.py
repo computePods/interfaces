@@ -190,6 +190,29 @@ def addAllInterface(appSelf) :
 
 
 
+  def post_project_add(implFunc):
+    return appSelf.add_api_route(
+      '/project/add',
+      implFunc,
+      methods=["POST"]
+    )
+
+  appSelf.post_project_add = post_project_add
+
+  """
+  Example use:
+
+    @post_project_add
+    async def post_project_add_impl() :
+       = { .... }
+      # do something and then return  ...
+      return 
+  """
+
+
+
+
+
   def get_projects(implFunc):
     return appSelf.add_api_route(
       '/projects',
@@ -207,6 +230,29 @@ def addAllInterface(appSelf) :
       projectDefinition = { .... }
       # do something and then return projectDefinition ...
       return projectDefinition
+  """
+
+
+
+
+
+  def post_project_remove(implFunc):
+    return appSelf.add_api_route(
+      '/project/remove',
+      implFunc,
+      methods=["POST"]
+    )
+
+  appSelf.post_project_remove = post_project_remove
+
+  """
+  Example use:
+
+    @post_project_remove
+    async def post_project_remove_impl() :
+       = { .... }
+      # do something and then return  ...
+      return 
   """
 
 

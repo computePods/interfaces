@@ -33,6 +33,12 @@ export const mountPointRouteParts = {
   "/projects": [
   ],
   
+  "/project/add": [
+  ],
+  
+  "/project/remove": [
+  ],
+  
   "/project": [
     'workspacePath',
     'project',
