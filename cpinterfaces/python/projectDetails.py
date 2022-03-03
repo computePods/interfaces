@@ -18,3 +18,9 @@ class Targets(BaseModel):
 class ProjectDefinition(BaseModel):
     description: Optional[str] = None
     targets: Optional[Dict[str, Targets]] = None
+
+
+class ProjectDetails(BaseModel):
+    projectName: Optional[str] = None
+    projectDir: Optional[str] = None
+    projectDesc: Optional[ProjectDefinition] = None

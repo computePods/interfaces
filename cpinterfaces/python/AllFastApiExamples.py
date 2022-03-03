@@ -46,6 +46,9 @@ mountPointRouteParts = {
   "/project/remove": [
   ],
   
+  "/project/update": [
+  ],
+  
   "/build/status": [
     'workspacePath',
     'project',

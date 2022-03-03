@@ -14,7 +14,7 @@ httpRoutes:
     route: /projects
     actions:
       - GET
-    response: projectDefinition
+    response: projectList
 ```
 
 ## JSON Project Lists
@@ -39,19 +39,34 @@ httpRoutes:
     route: /project/add
     actions:
       - POST
-    body: projectPath
+    body: projectDetails
 ```
 
 ```yaml
 jsonSchemaDefs:
-  projectPath:
+  projectDetails:
     type: object
     properties:
       projectName:
         type: string
       projectDir:
         type: string
+      projectDesc:
+        $ref: "#/$defs/projectDefinition"
 ```
+
+## Updating projects
+
+```yaml
+httpRoutes:
+  projectUpdate:
+    route: /project/update
+    actions:
+      - POST
+    body: projectDetails
+```
+
+
 
 ## Removing projects
 
@@ -61,7 +76,7 @@ httpRoutes:
     route: /project/remove
     actions:
       - POST
-    body: projectPath
+    body: projectDetails
 ```
 
 ## Getting project definitions

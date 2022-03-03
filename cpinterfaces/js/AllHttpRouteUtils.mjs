@@ -36,6 +36,9 @@ export const mountPointRouteParts = {
   "/project/add": [
   ],
   
+  "/project/update": [
+  ],
+  
   "/project/remove": [
   ],
   

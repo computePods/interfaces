@@ -4,10 +4,11 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
-
-from pydantic import BaseModel
+from pydantic import BaseModel, Extra
 
 
-class LogfileJson(BaseModel):
-    lines: Optional[List[str]] = None
+class ProjectList(BaseModel):
+    pass
+
+    class Config:
+        extra = Extra.allow

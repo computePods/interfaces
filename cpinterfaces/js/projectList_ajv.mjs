@@ -1,4 +1,4 @@
-// This is the ajv validator based upon the projectPath JSON schema
+// This is the ajv validator based upon the projectList JSON schema
 
 
 import Ajv from 'ajv'
@@ -12,7 +12,7 @@ Generation Options:
     "strict": true
   },
   "interfaceName": "All",
-  "rootType": "projectPath"
+  "rootType": "projectList"
 }
 *********************************************************************/
 
@@ -153,20 +153,23 @@ const schema = {
       },
       "type": "object"
     },
-    "projectList": {
-      "additionalProperties": {
-        "type": "string"
-      },
-      "type": "object"
-    },
-    "projectPath": {
+    "projectDetails": {
       "properties": {
+        "projectDesc": {
+          "$ref": "#/$defs/projectDefinition"
+        },
         "projectDir": {
           "type": "string"
         },
         "projectName": {
           "type": "string"
         }
+      },
+      "type": "object"
+    },
+    "projectList": {
+      "additionalProperties": {
+        "type": "string"
       },
       "type": "object"
     },
@@ -228,15 +231,10 @@ const schema = {
       "type": "object"
     }
   },
-  "properties": {
-    "projectDir": {
-      "type": "string"
-    },
-    "projectName": {
-      "type": "string"
-    }
+  "additionalProperties": {
+    "type": "string"
   },
-  "title": "projectPath",
+  "title": "projectList",
   "type": "object"
 }
 
@@ -245,4 +243,4 @@ const ajv = new Ajv({
   "strict": true
 })
 
-export const projectPath_validate = ajv.compile(schema)
+export const projectList_validate = ajv.compile(schema)

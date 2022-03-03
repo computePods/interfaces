@@ -153,20 +153,23 @@ const schema = {
       },
       "type": "object"
     },
-    "projectList": {
-      "additionalProperties": {
-        "type": "string"
-      },
-      "type": "object"
-    },
-    "projectPath": {
+    "projectDetails": {
       "properties": {
+        "projectDesc": {
+          "$ref": "#/$defs/projectDefinition"
+        },
         "projectDir": {
           "type": "string"
         },
         "projectName": {
           "type": "string"
         }
+      },
+      "type": "object"
+    },
+    "projectList": {
+      "additionalProperties": {
+        "type": "string"
       },
       "type": "object"
     },
