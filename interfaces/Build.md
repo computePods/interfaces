@@ -163,7 +163,7 @@ natsSubjects:
 ```
 
 ```yaml
-jsonScemaDefs:
+jsonSchemaDefs:
   buildDetails:
     type: object
     properties:

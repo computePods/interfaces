@@ -32,6 +32,8 @@ import { entityInterfaceMapping_validate } from './entityInterfaceMapping_ajv.mj
 
 import { notification_validate } from './notification_ajv.mjs'
 
+import { rsyncPublicKey_validate } from './rsyncPublicKey_ajv.mjs'
+
 import { heartBeat_validate } from './heartBeat_ajv.mjs'
 
 
@@ -832,6 +834,78 @@ export const connectorMixins = {
 
 
 
+
+
+
+
+
+  "/security/rsyncPublicKey": function(
+    entityUrlParts, /* dict of path parts */
+  ) {
+    entityUrlParts['mountPoint'] = '/security/rsyncPublicKey'
+    var artefactPath = buildArtefactPath(entityUrlParts)
+    var theUrl       = buildUrl(entityUrlParts)
+    if (!theUrl) {
+      log.error("Could not build URL for:")
+      log.error(entityUrlParts)
+      return {
+        artefactPath: artefactPath,
+        entityType: '/security/rsyncPublicKey',
+        entityUrlParts: entityUrlParts,
+      }
+    }
+    var theModel = {
+      artefactPath: artefactPath,
+      entityType: '/security/rsyncPublicKey',
+      entityUrlParts: entityUrlParts,
+      "_getServerData": function() {
+        return m.request({
+          method: "GET",
+          url: theUrl,
+          
+        })
+      },
+      "getAllServerData": function() {
+        theModel.updateRequest = null
+        theModel._getServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            rsyncPublicKey_validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      },
+      "getChangedServerData": function() {
+        theModel.updateRequest = null
+        theModel._getServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            rsyncPublicKey_validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      }
+    }
+    return theModel
+  },
 
 
 

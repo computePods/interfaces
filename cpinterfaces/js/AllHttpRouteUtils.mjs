@@ -53,6 +53,9 @@ export const mountPointRouteParts = {
   "/notifications": [
   ],
   
+  "/security/rsyncPublicKey": [
+  ],
+  
   "/heartBeat": [
   ],
   

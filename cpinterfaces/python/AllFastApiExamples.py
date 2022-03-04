@@ -49,6 +49,9 @@ mountPointRouteParts = {
   "/project/update": [
   ],
   
+  "/security/rsyncPublicKey": [
+  ],
+  
   "/build/status": [
     'workspacePath',
     'project',

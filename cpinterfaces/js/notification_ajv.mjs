@@ -18,6 +18,20 @@ Generation Options:
 
 const schema = {
   "$defs": {
+    "buildDetails": {
+      "properties": {
+        "build": {
+          "type": "string"
+        },
+        "from": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "buildTasks": {
       "description": "An array of build task status objects",
       "items": {
@@ -186,6 +200,9 @@ const schema = {
         }
       },
       "type": "object"
+    },
+    "rsyncPublicKey": {
+      "type": "string"
     },
     "taskStatus": {
       "description": "The status of a single build task",

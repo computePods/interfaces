@@ -1,4 +1,4 @@
-// This is the ajv validator based upon the taskStatus JSON schema
+// This is the ajv validator based upon the rsyncPublicKey JSON schema
 
 
 import Ajv from 'ajv'
@@ -12,7 +12,7 @@ Generation Options:
     "strict": true
   },
   "interfaceName": "All",
-  "rootType": "taskStatus"
+  "rootType": "rsyncPublicKey"
 }
 *********************************************************************/
 
@@ -248,28 +248,8 @@ const schema = {
       "type": "object"
     }
   },
-  "description": "The status of a single build task",
-  "properties": {
-    "dependencies": {
-      "description": "An array of dependent tasks",
-      "items": {
-        "type": "string"
-      },
-      "type": "array"
-    },
-    "progress": {
-      "type": "integer"
-    },
-    "target": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "target",
-    "progress"
-  ],
-  "title": "taskStatus",
-  "type": "object"
+  "title": "rsyncPublicKey",
+  "type": "string"
 }
 
 const ajv = new Ajv({
@@ -277,4 +257,4 @@ const ajv = new Ajv({
   "strict": true
 })
 
-export const taskStatus_validate = ajv.compile(schema)
+export const rsyncPublicKey_validate = ajv.compile(schema)

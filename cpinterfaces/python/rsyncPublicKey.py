@@ -7,7 +7,5 @@ from __future__ import annotations
 from pydantic import BaseModel, Field
 
 
-class HeartBeat(BaseModel):
-    __root__: str = Field(
-        ..., description='A simple heartBeat message (Hello)', title='heartBeat'
-    )
+class RsyncPublicKey(BaseModel):
+    __root__: str = Field(..., title='rsyncPublicKey')

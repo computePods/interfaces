@@ -19,4 +19,6 @@ Include.Interface: [Utils](Utils.md)
 
 Include.Interface: [Notifications](Notifications.md)
 
+Include.Interface: [Security](Security.md)
+
 Include.Interface: [HeartBeat](HeartBeat.md)

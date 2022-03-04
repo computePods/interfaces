@@ -282,6 +282,29 @@ def addAllInterface(appSelf) :
 
 
 
+  def get_security_rsyncPublicKey(implFunc):
+    return appSelf.add_api_route(
+      '/security/rsyncPublicKey',
+      implFunc,
+      methods=["GET"]
+    )
+
+  appSelf.get_security_rsyncPublicKey = get_security_rsyncPublicKey
+
+  """
+  Example use:
+
+    @get_security_rsyncPublicKey
+    async def get_security_rsyncPublicKey_impl() :
+      rsyncPublicKey = { .... }
+      # do something and then return rsyncPublicKey ...
+      return rsyncPublicKey
+  """
+
+
+
+
+
   def get_build_status(implFunc):
     return appSelf.add_api_route(
       '/build/status/{workspacePath}/{project}/{target}/{taskPath}',
