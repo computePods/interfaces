@@ -86,6 +86,17 @@ const schema = {
       "description": "A simple heartBeat message (Hello)",
       "type": "string"
     },
+    "hostPublicKey": {
+      "properties": {
+        "host": {
+          "type": "string"
+        },
+        "publicKey": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "howToBuild": {
       "properties": {
         "goal": {

@@ -19,3 +19,34 @@ jsonSchemaDefs:
   rsyncPublicKey:
     type: string
 ```
+
+## SSH host public key for rsync
+
+```yaml
+httpRoutes:
+  addHostPublicKey:
+    route: /security/addHostPublicKey
+    actions:
+      - POST
+    body: hostPublicKey
+```
+
+```yaml
+jsonSchemaDefs:
+  hostPublicKey:
+    type: object
+    properties:
+      host:
+        type: string
+      publicKey:
+        type: string
+```
+
+```yaml
+httpRoutes:
+  removeHostPublicKey:
+    route: /security/removeHostPublicKey
+    actions:
+      - POST
+    body: hostPublicKey
+```

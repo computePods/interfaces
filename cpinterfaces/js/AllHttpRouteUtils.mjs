@@ -56,6 +56,12 @@ export const mountPointRouteParts = {
   "/security/rsyncPublicKey": [
   ],
   
+  "/security/addHostPublicKey": [
+  ],
+  
+  "/security/removeHostPublicKey": [
+  ],
+  
   "/heartBeat": [
   ],
   

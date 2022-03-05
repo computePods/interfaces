@@ -1,4 +1,4 @@
-// This is the ajv validator based upon the buildTasks JSON schema
+// This is the ajv validator based upon the hostPublicKey JSON schema
 
 
 import Ajv from 'ajv'
@@ -12,7 +12,7 @@ Generation Options:
     "strict": true
   },
   "interfaceName": "All",
-  "rootType": "buildTasks"
+  "rootType": "hostPublicKey"
 }
 *********************************************************************/
 
@@ -259,12 +259,16 @@ const schema = {
       "type": "object"
     }
   },
-  "description": "An array of build task status objects",
-  "items": {
-    "$ref": "#/$defs/taskStatus"
+  "properties": {
+    "host": {
+      "type": "string"
+    },
+    "publicKey": {
+      "type": "string"
+    }
   },
-  "title": "buildTasks",
-  "type": "array"
+  "title": "hostPublicKey",
+  "type": "object"
 }
 
 const ajv = new Ajv({
@@ -272,4 +276,4 @@ const ajv = new Ajv({
   "strict": true
 })
 
-export const buildTasks_validate = ajv.compile(schema)
+export const hostPublicKey_validate = ajv.compile(schema)

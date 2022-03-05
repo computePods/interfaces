@@ -3,6 +3,9 @@
 
 mountPointRouteParts = {
   
+  "/security/addHostPublicKey": [
+  ],
+  
   "/build/start": [
     'workspacePath',
     'project',
@@ -47,6 +50,9 @@ mountPointRouteParts = {
   ],
   
   "/project/update": [
+  ],
+  
+  "/security/removeHostPublicKey": [
   ],
   
   "/security/rsyncPublicKey": [

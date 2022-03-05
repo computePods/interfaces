@@ -6,6 +6,29 @@ def addAllInterface(appSelf) :
 
 
 
+  def post_security_addHostPublicKey(implFunc):
+    return appSelf.add_api_route(
+      '/security/addHostPublicKey',
+      implFunc,
+      methods=["POST"]
+    )
+
+  appSelf.post_security_addHostPublicKey = post_security_addHostPublicKey
+
+  """
+  Example use:
+
+    @post_security_addHostPublicKey
+    async def post_security_addHostPublicKey_impl() :
+       = { .... }
+      # do something and then return  ...
+      return 
+  """
+
+
+
+
+
   def get_build_start(implFunc):
     return appSelf.add_api_route(
       '/build/start/{workspacePath}/{project}/{target}',
@@ -273,6 +296,29 @@ def addAllInterface(appSelf) :
 
     @post_project_update
     async def post_project_update_impl() :
+       = { .... }
+      # do something and then return  ...
+      return 
+  """
+
+
+
+
+
+  def post_security_removeHostPublicKey(implFunc):
+    return appSelf.add_api_route(
+      '/security/removeHostPublicKey',
+      implFunc,
+      methods=["POST"]
+    )
+
+  appSelf.post_security_removeHostPublicKey = post_security_removeHostPublicKey
+
+  """
+  Example use:
+
+    @post_security_removeHostPublicKey
+    async def post_security_removeHostPublicKey_impl() :
        = { .... }
       # do something and then return  ...
       return 

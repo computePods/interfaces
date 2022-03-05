@@ -4,10 +4,11 @@
 
 from __future__ import annotations
 
-from typing import List, Optional
+from typing import Optional
 
 from pydantic import BaseModel
 
 
-class LogfileJson(BaseModel):
-    lines: Optional[List[str]] = None
+class HostPublicKey(BaseModel):
+    host: Optional[str] = None
+    publicKey: Optional[str] = None
