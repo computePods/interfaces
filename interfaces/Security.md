@@ -50,3 +50,26 @@ httpRoutes:
       - POST
     body: hostPublicKey
 ```
+
+```yaml
+
+natsSubjects:
+  getHostPublicKeys:
+    subject: security.getHostPublicKeys
+    message: emptyNatsMessage
+```
+
+```yaml
+natsSubjects:
+  hostPublicKeys:
+    subject: security.hostPublicKeys
+    message: hostPublicKeys
+```
+
+```yaml
+jsonSchemaDefs:
+  hostPublicKeys:
+    type: dictionary
+    items:
+      $ref: "#/$defs/hostPublicKey"
+```

@@ -199,3 +199,51 @@ def addAllNatsSubjects(appSelf) :
       return watchRequest
   """
 
+
+
+  def subscribe_security_getHostPublicKeys(=None):
+    wildCards = ""
+
+    def decoratorSubscribe(implFunc):
+      return appSelf.subscribe(
+        'security.getHostPublicKeys'+wildCards,
+        cb=implFunc
+      )
+    return decoratorSubscribe
+
+  appSelf.subscribe_security_getHostPublicKeys = subscribe_security_getHostPublicKeys
+
+  """
+  Example use:
+
+    @subscribe_security_getHostPublicKeys
+    async def subscribe_security_getHostPublicKeys_impl() :
+      emptyNatsMessage = { .... }
+      # do something and then return emptyNatsMessage ...
+      return emptyNatsMessage
+  """
+
+
+
+  def subscribe_security_hostPublicKeys(=None):
+    wildCards = ""
+
+    def decoratorSubscribe(implFunc):
+      return appSelf.subscribe(
+        'security.hostPublicKeys'+wildCards,
+        cb=implFunc
+      )
+    return decoratorSubscribe
+
+  appSelf.subscribe_security_hostPublicKeys = subscribe_security_hostPublicKeys
+
+  """
+  Example use:
+
+    @subscribe_security_hostPublicKeys
+    async def subscribe_security_hostPublicKeys_impl() :
+      hostPublicKeys = { .... }
+      # do something and then return hostPublicKeys ...
+      return hostPublicKeys
+  """
+

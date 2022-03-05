@@ -59,6 +59,9 @@ const schema = {
       },
       "type": "object"
     },
+    "emptyNatsMessage": {
+      "type": "string"
+    },
     "entityInterfaceMapping": {
       "additionalProperties": {
         "$ref": "#/$defs/mountPoint"
@@ -94,6 +97,12 @@ const schema = {
         "publicKey": {
           "type": "string"
         }
+      },
+      "type": "object"
+    },
+    "hostPublicKeys": {
+      "additionalProperties": {
+        "$ref": "#/$defs/hostPublicKey"
       },
       "type": "object"
     },

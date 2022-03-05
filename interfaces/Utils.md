@@ -76,3 +76,11 @@ Where:
 
 - [`<taskPath>`](Build.md#task-paths) is a "path" to the required build
   dependency.
+
+## Empty NATS message
+
+```yaml
+jsonSchemaDefs:
+  emptyNatsMessage:
+    type: string
+```
