@@ -61,6 +61,7 @@ sequenceDiagram
 
   MD->>C1 : build from
 
+  C1->>MD : build results
 ```
 
 ## Messages
@@ -170,6 +171,28 @@ jsonSchemaDefs:
       build:
         type: string
       from:
+        type: array
+        items:
+          type: string
+```
+
+### Build results
+
+```yaml
+natsSubjects:
+  buildResults:
+    subject: build.results.<artefactType>
+    message: buildResults
+```
+
+```yaml
+jsonSchemaDefs:
+  buildResults:
+    type: object
+    properties:
+      result:
+        type: string
+      details:
         type: array
         items:
           type: string
