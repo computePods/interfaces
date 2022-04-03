@@ -66,8 +66,6 @@ httpRoutes:
     body: projectDetails
 ```
 
-
-
 ## Removing projects
 
 ```yaml
@@ -113,11 +111,20 @@ description: |
   The Measuring Heyting algebras paper looks at...
 
 targets:
+  defaults:
+    uses:
+      - literateProgramming
+      - conTests
+      - commDiag
+      - diSimp
+    outputDir:
+      - somewhere
+
   html:
     help: build the html version of the paper
     dependencies:
       - measuringHeyting.pdf
-    worker: html2pdf
+    worker: pdf2html
 
   pdf:
     help: build the pdf version of the paper
@@ -148,10 +155,20 @@ jsonSchemaDefs:
           properties:
             help:
               type: string
+            uses:
+              type: array
+              items:
+                type: string
             dependencies:
               type: array
               items:
                 type: string
+            outputs:
+              type: array
+              items:
+                type: string
+            outputDir:
+              type: string
             worker:
               type: string
 ```
