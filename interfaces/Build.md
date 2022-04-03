@@ -170,6 +170,10 @@ jsonSchemaDefs:
     properties:
       build:
         type: string
+      dependsDirs:
+        type: array
+        items:
+          type: string
       from:
         type: array
         items:
