@@ -274,12 +274,23 @@ All_Examples = {
     'Project_definition_for_the_'Measuring_Heyting_algebras'_paper' : {
       "description": "The Measuring Heyting algebras paper looks at...\n",
       "targets": {
+        "defaults": {
+          "outputDir": [
+            "somewhere"
+          ],
+          "uses": [
+            "literateProgramming",
+            "conTests",
+            "commDiag",
+            "diSimp"
+          ]
+        },
         "html": {
           "dependencies": [
             "measuringHeyting.pdf"
           ],
           "help": "build the html version of the paper",
-          "worker": "html2pdf"
+          "worker": "pdf2html"
         },
         "pdf": {
           "dependencies": [

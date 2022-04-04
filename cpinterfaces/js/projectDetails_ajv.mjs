@@ -23,11 +23,31 @@ const schema = {
         "build": {
           "type": "string"
         },
+        "dependsDirs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
         "from": {
           "items": {
             "type": "string"
           },
           "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "buildResults": {
+      "properties": {
+        "details": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "result": {
+          "type": "string"
         }
       },
       "type": "object"
@@ -175,6 +195,21 @@ const schema = {
               },
               "help": {
                 "type": "string"
+              },
+              "outputDir": {
+                "type": "string"
+              },
+              "outputs": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "uses": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
               },
               "worker": {
                 "type": "string"

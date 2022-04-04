@@ -129,6 +129,37 @@ def addAllNatsSubjects(appSelf) :
 
 
 
+  def subscribe_build_results(artefactType=None):
+    wildCards = ""
+
+
+    if artefactType :
+      wildCards = wildCards + '.' + artefactType
+    else :
+      wildCards = wildCards + '.*'
+
+
+    def decoratorSubscribe(implFunc):
+      return appSelf.subscribe(
+        'build.results'+wildCards,
+        cb=implFunc
+      )
+    return decoratorSubscribe
+
+  appSelf.subscribe_build_results = subscribe_build_results
+
+  """
+  Example use:
+
+    @subscribe_build_results
+    async def subscribe_build_results_impl(artefactType) :
+      buildResults = { .... }
+      # do something and then return buildResults ...
+      return buildResults
+  """
+
+
+
   def subscribe_fileChanged(reason=None, pod=None, dottedPath=None):
     wildCards = ""
 
