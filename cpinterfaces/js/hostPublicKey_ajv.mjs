@@ -242,6 +242,12 @@ const schema = {
       },
       "type": "object"
     },
+    "projectTargetList": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
     "registerArtefactType": {
       "properties": {
         "extensions": {

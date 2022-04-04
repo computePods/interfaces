@@ -35,11 +35,6 @@ mountPointRouteParts = {
   "/notifications": [
   ],
   
-  "/project": [
-    'workspacePath',
-    'project',
-  ],
-  
   "/project/add": [
   ],
   
@@ -47,6 +42,10 @@ mountPointRouteParts = {
   ],
   
   "/project/remove": [
+  ],
+  
+  "/project/targets": [
+    'project',
   ],
   
   "/project/update": [

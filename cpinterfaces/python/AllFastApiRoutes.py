@@ -190,29 +190,6 @@ def addAllInterface(appSelf) :
 
 
 
-  def get_project(implFunc):
-    return appSelf.add_api_route(
-      '/project/{workspacePath}/{project}',
-      implFunc,
-      methods=["GET"]
-    )
-
-  appSelf.get_project = get_project
-
-  """
-  Example use:
-
-    @get_project
-    async def get_project_impl(workspacePath, project) :
-      projectDefinition = { .... }
-      # do something and then return projectDefinition ...
-      return projectDefinition
-  """
-
-
-
-
-
   def post_project_add(implFunc):
     return appSelf.add_api_route(
       '/project/add',
@@ -276,6 +253,29 @@ def addAllInterface(appSelf) :
        = { .... }
       # do something and then return  ...
       return 
+  """
+
+
+
+
+
+  def get_project_targets(implFunc):
+    return appSelf.add_api_route(
+      '/project/targets/{project}',
+      implFunc,
+      methods=["GET"]
+    )
+
+  appSelf.get_project_targets = get_project_targets
+
+  """
+  Example use:
+
+    @get_project_targets
+    async def get_project_targets_impl(project) :
+      projectTargetList = { .... }
+      # do something and then return projectTargetList ...
+      return projectTargetList
   """
 
 

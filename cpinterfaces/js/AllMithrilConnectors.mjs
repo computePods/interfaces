@@ -26,7 +26,7 @@ import { projectList_validate } from './projectList_ajv.mjs'
 
 import { projectDetails_validate } from './projectDetails_ajv.mjs'
 
-import { projectDefinition_validate } from './projectDefinition_ajv.mjs'
+import { projectTargetList_validate } from './projectTargetList_ajv.mjs'
 
 import { entityInterfaceMapping_validate } from './entityInterfaceMapping_ajv.mjs'
 
@@ -693,10 +693,10 @@ export const connectorMixins = {
 
 
 
-  "/project": function(
+  "/project/targets": function(
     entityUrlParts, /* dict of path parts */
   ) {
-    entityUrlParts['mountPoint'] = '/project'
+    entityUrlParts['mountPoint'] = '/project/targets'
     var artefactPath = buildArtefactPath(entityUrlParts)
     var theUrl       = buildUrl(entityUrlParts)
     if (!theUrl) {
@@ -704,13 +704,13 @@ export const connectorMixins = {
       log.error(entityUrlParts)
       return {
         artefactPath: artefactPath,
-        entityType: '/project',
+        entityType: '/project/targets',
         entityUrlParts: entityUrlParts,
       }
     }
     var theModel = {
       artefactPath: artefactPath,
-      entityType: '/project',
+      entityType: '/project/targets',
       entityUrlParts: entityUrlParts,
       "_getServerData": function() {
         return m.request({
@@ -731,7 +731,7 @@ export const connectorMixins = {
           log.debug(response);
           log.debug("----------------------------------------------------")
           try {
-            projectDefinition_validate(response)
+            projectTargetList_validate(response)
           } catch (err) {
             log.error(err)
           }
@@ -750,7 +750,7 @@ export const connectorMixins = {
           log.debug(response);
           log.debug("----------------------------------------------------")
           try {
-            projectDefinition_validate(response)
+            projectTargetList_validate(response)
           } catch (err) {
             log.error(err)
           }

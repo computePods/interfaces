@@ -77,16 +77,26 @@ httpRoutes:
     body: projectDetails
 ```
 
-## Getting project definitions
+## Getting project targets
 
 ```yaml
 httpRoutes:
-  project:
-    route: /project/<workspacePath>/<project>
+  projectTragets:
+    route: /project/targets/<project>
     actions:
       - GET
-    response: projectDefinition
+    response: projectTargetList
 ```
+
+```yaml
+jsonSchemaDefs:
+  projectTargetList:
+    type: dictionary
+    items:
+      type: string
+```
+
+## Getting project definitions
 
 ### Project definition files
 

@@ -1,4 +1,4 @@
-// This is the ajv validator based upon the buildTasks JSON schema
+// This is the ajv validator based upon the projectTargetList JSON schema
 
 
 import Ajv from 'ajv'
@@ -12,7 +12,7 @@ Generation Options:
     "strict": true
   },
   "interfaceName": "All",
-  "rootType": "buildTasks"
+  "rootType": "projectTargetList"
 }
 *********************************************************************/
 
@@ -309,12 +309,11 @@ const schema = {
       "type": "object"
     }
   },
-  "description": "An array of build task status objects",
-  "items": {
-    "$ref": "#/$defs/taskStatus"
+  "additionalProperties": {
+    "type": "string"
   },
-  "title": "buildTasks",
-  "type": "array"
+  "title": "projectTargetList",
+  "type": "object"
 }
 
 const ajv = new Ajv({
@@ -322,4 +321,4 @@ const ajv = new Ajv({
   "strict": true
 })
 
-export const buildTasks_validate = ajv.compile(schema)
+export const projectTargetList_validate = ajv.compile(schema)
