@@ -98,6 +98,15 @@ jsonSchemaDefs:
 
 ## Getting project definitions
 
+```yaml
+httpRoutes:
+  projectDefinition:
+    route: /project/definition/<project>
+    actions:
+      - GET
+    response: projectDefinition
+```
+
 ### Project definition files
 
 On *disk* a project definition *file* is a YAML file loosely based upon

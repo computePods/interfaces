@@ -38,6 +38,10 @@ mountPointRouteParts = {
   "/project/add": [
   ],
   
+  "/project/definition": [
+    'project',
+  ],
+  
   "/projects": [
   ],
   

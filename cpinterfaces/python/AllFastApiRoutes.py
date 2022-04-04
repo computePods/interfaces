@@ -213,6 +213,29 @@ def addAllInterface(appSelf) :
 
 
 
+  def get_project_definition(implFunc):
+    return appSelf.add_api_route(
+      '/project/definition/{project}',
+      implFunc,
+      methods=["GET"]
+    )
+
+  appSelf.get_project_definition = get_project_definition
+
+  """
+  Example use:
+
+    @get_project_definition
+    async def get_project_definition_impl(project) :
+      projectDefinition = { .... }
+      # do something and then return projectDefinition ...
+      return projectDefinition
+  """
+
+
+
+
+
   def get_projects(implFunc):
     return appSelf.add_api_route(
       '/projects',

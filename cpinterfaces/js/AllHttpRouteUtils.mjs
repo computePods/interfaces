@@ -46,6 +46,10 @@ export const mountPointRouteParts = {
     'project',
   ],
   
+  "/project/definition": [
+    'project',
+  ],
+  
   "/entity/interface/mapping": [
   ],
   
