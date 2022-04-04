@@ -7,7 +7,7 @@ from __future__ import annotations
 from pydantic import BaseModel, Extra
 
 
-class ProjectTargetList(BaseModel):
+class ProjectBuildTarget(BaseModel):
     pass
 
     class Config:

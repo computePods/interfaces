@@ -96,6 +96,26 @@ jsonSchemaDefs:
       type: string
 ```
 
+## Getting project targets build details
+
+```yaml
+httpRoutes:
+  projectBuildTraget:
+    route: /project/buildTarget/<project>/<target>
+    actions:
+      - GET
+    response: projectBuildTarget
+```
+
+```yaml
+jsonSchemaDefs:
+  projectBuildTarget:
+    type: dictionary
+    items:
+      type: string
+```
+
+
 ## Getting project definitions
 
 ```yaml
@@ -190,4 +210,10 @@ jsonSchemaDefs:
               type: string
             worker:
               type: string
+            projectDir:
+              type: string
+            externals:
+              type: array
+              items:
+                type: string
 ```

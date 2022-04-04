@@ -28,6 +28,8 @@ import { projectDetails_validate } from './projectDetails_ajv.mjs'
 
 import { projectTargetList_validate } from './projectTargetList_ajv.mjs'
 
+import { projectBuildTarget_validate } from './projectBuildTarget_ajv.mjs'
+
 import { projectDefinition_validate } from './projectDefinition_ajv.mjs'
 
 import { entityInterfaceMapping_validate } from './entityInterfaceMapping_ajv.mjs'
@@ -753,6 +755,78 @@ export const connectorMixins = {
           log.debug("----------------------------------------------------")
           try {
             projectTargetList_validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      }
+    }
+    return theModel
+  },
+
+
+
+
+
+  "/project/buildTarget": function(
+    entityUrlParts, /* dict of path parts */
+  ) {
+    entityUrlParts['mountPoint'] = '/project/buildTarget'
+    var artefactPath = buildArtefactPath(entityUrlParts)
+    var theUrl       = buildUrl(entityUrlParts)
+    if (!theUrl) {
+      log.error("Could not build URL for:")
+      log.error(entityUrlParts)
+      return {
+        artefactPath: artefactPath,
+        entityType: '/project/buildTarget',
+        entityUrlParts: entityUrlParts,
+      }
+    }
+    var theModel = {
+      artefactPath: artefactPath,
+      entityType: '/project/buildTarget',
+      entityUrlParts: entityUrlParts,
+      "_getServerData": function() {
+        return m.request({
+          method: "GET",
+          url: theUrl,
+          
+        })
+      },
+      "getAllServerData": function() {
+        theModel.updateRequest = null
+        theModel._getServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            projectBuildTarget_validate(response)
+          } catch (err) {
+            log.error(err)
+          }
+          theModel.data = response
+        })
+      },
+      "getChangedServerData": function() {
+        theModel.updateRequest = null
+        theModel._getServerData(
+          
+        ).then(function(response) {
+          log.debug("----------------------------------------------------")
+          log.debug("response from connectorMixins")
+          log.debug(entityUrlParts)
+          log.debug(theUrl)
+          log.debug(response);
+          log.debug("----------------------------------------------------")
+          try {
+            projectBuildTarget_validate(response)
           } catch (err) {
             log.error(err)
           }

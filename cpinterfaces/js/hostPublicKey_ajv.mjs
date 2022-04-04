@@ -179,6 +179,12 @@ const schema = {
       },
       "type": "object"
     },
+    "projectBuildTarget": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
     "projectDefinition": {
       "properties": {
         "description": {
@@ -188,6 +194,12 @@ const schema = {
           "additionalProperties": {
             "properties": {
               "dependencies": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "externals": {
                 "items": {
                   "type": "string"
                 },
@@ -204,6 +216,9 @@ const schema = {
                   "type": "string"
                 },
                 "type": "array"
+              },
+              "projectDir": {
+                "type": "string"
               },
               "uses": {
                 "items": {

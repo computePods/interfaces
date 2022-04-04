@@ -46,6 +46,11 @@ export const mountPointRouteParts = {
     'project',
   ],
   
+  "/project/buildTarget": [
+    'project',
+    'target',
+  ],
+  
   "/project/definition": [
     'project',
   ],

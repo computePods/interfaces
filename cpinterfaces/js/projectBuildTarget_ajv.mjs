@@ -1,4 +1,4 @@
-// This is the ajv validator based upon the notification JSON schema
+// This is the ajv validator based upon the projectBuildTarget JSON schema
 
 
 import Ajv from 'ajv'
@@ -12,7 +12,7 @@ Generation Options:
     "strict": true
   },
   "interfaceName": "All",
-  "rootType": "notification"
+  "rootType": "projectBuildTarget"
 }
 *********************************************************************/
 
@@ -324,29 +324,10 @@ const schema = {
       "type": "object"
     }
   },
-  "description": "A notification that a particular Artefact has changed.",
-  "properties": {
-    "fullPath": {
-      "type": "string"
-    },
-    "mountPoint": {
-      "type": "string"
-    },
-    "notificationType": {
-      "enum": [
-        "Added",
-        "Removed",
-        "Changed"
-      ]
-    },
-    "routeParts": {
-      "additionalProperties": {
-        "type": "string"
-      },
-      "type": "object"
-    }
+  "additionalProperties": {
+    "type": "string"
   },
-  "title": "notification",
+  "title": "projectBuildTarget",
   "type": "object"
 }
 
@@ -355,4 +336,4 @@ const ajv = new Ajv({
   "strict": true
 })
 
-export const notification_validate = ajv.compile(schema)
+export const projectBuildTarget_validate = ajv.compile(schema)

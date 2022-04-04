@@ -213,6 +213,29 @@ def addAllInterface(appSelf) :
 
 
 
+  def get_project_buildTarget(implFunc):
+    return appSelf.add_api_route(
+      '/project/buildTarget/{project}/{target}',
+      implFunc,
+      methods=["GET"]
+    )
+
+  appSelf.get_project_buildTarget = get_project_buildTarget
+
+  """
+  Example use:
+
+    @get_project_buildTarget
+    async def get_project_buildTarget_impl(project, target) :
+      projectBuildTarget = { .... }
+      # do something and then return projectBuildTarget ...
+      return projectBuildTarget
+  """
+
+
+
+
+
   def get_project_definition(implFunc):
     return appSelf.add_api_route(
       '/project/definition/{project}',
