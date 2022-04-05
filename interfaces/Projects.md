@@ -198,6 +198,8 @@ jsonSchemaDefs:
               type: array
               items:
                 type: string
+            mainFile:
+              type: string
             dependencies:
               type: array
               items:
@@ -206,6 +208,8 @@ jsonSchemaDefs:
               type: array
               items:
                 type: string
+            srcDir:
+              type: string
             outputDir:
               type: string
             worker:
@@ -213,6 +217,10 @@ jsonSchemaDefs:
             projectDir:
               type: string
             externals:
+              type: array
+              items:
+                type: string
+            origExternals:
               type: array
               items:
                 type: string

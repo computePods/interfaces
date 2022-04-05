@@ -208,6 +208,15 @@ const schema = {
               "help": {
                 "type": "string"
               },
+              "mainFile": {
+                "type": "string"
+              },
+              "origExternals": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
               "outputDir": {
                 "type": "string"
               },
@@ -218,6 +227,9 @@ const schema = {
                 "type": "array"
               },
               "projectDir": {
+                "type": "string"
+              },
+              "srcDir": {
                 "type": "string"
               },
               "uses": {
