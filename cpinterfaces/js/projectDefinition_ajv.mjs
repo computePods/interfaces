@@ -105,6 +105,23 @@ const schema = {
       },
       "type": "object"
     },
+    "externalDependencies": {
+      "additionalProperties": {
+        "properties": {
+          "dependencies": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "projectDir": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "type": "object"
+    },
     "heartBeat": {
       "description": "A simple heartBeat message (Hello)",
       "type": "string"
@@ -207,6 +224,15 @@ const schema = {
               },
               "help": {
                 "type": "string"
+              },
+              "install": {
+                "dir": {
+                  "type": "string"
+                },
+                "manualUpdate": {
+                  "type": "boolean"
+                },
+                "type": "object"
               },
               "mainFile": {
                 "type": "string"
@@ -357,6 +383,15 @@ const schema = {
           },
           "help": {
             "type": "string"
+          },
+          "install": {
+            "dir": {
+              "type": "string"
+            },
+            "manualUpdate": {
+              "type": "boolean"
+            },
+            "type": "object"
           },
           "mainFile": {
             "type": "string"

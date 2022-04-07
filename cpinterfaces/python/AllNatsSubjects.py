@@ -160,6 +160,54 @@ def addAllNatsSubjects(appSelf) :
 
 
 
+  def subscribe_build_getExternalDependencies(=None):
+    wildCards = ""
+
+    def decoratorSubscribe(implFunc):
+      return appSelf.subscribe(
+        'build.getExternalDependencies'+wildCards,
+        cb=implFunc
+      )
+    return decoratorSubscribe
+
+  appSelf.subscribe_build_getExternalDependencies = subscribe_build_getExternalDependencies
+
+  """
+  Example use:
+
+    @subscribe_build_getExternalDependencies
+    async def subscribe_build_getExternalDependencies_impl() :
+      emptyNatsMessage = { .... }
+      # do something and then return emptyNatsMessage ...
+      return emptyNatsMessage
+  """
+
+
+
+  def subscribe_build_externalDependencies(=None):
+    wildCards = ""
+
+    def decoratorSubscribe(implFunc):
+      return appSelf.subscribe(
+        'build.externalDependencies'+wildCards,
+        cb=implFunc
+      )
+    return decoratorSubscribe
+
+  appSelf.subscribe_build_externalDependencies = subscribe_build_externalDependencies
+
+  """
+  Example use:
+
+    @subscribe_build_externalDependencies
+    async def subscribe_build_externalDependencies_impl() :
+      externalDependencies = { .... }
+      # do something and then return externalDependencies ...
+      return externalDependencies
+  """
+
+
+
   def subscribe_fileChanged(reason=None, pod=None, dottedPath=None):
     wildCards = ""
 

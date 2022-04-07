@@ -201,3 +201,34 @@ jsonSchemaDefs:
         items:
           type: string
 ```
+
+## External dependencies
+
+```yaml
+natsSubjects:
+  getExternalDependencies:
+    subject: build.getExternalDependencies
+    message: emptyNatsMessage
+```
+
+```yaml
+natsSubjects:
+  externalDependencies:
+    subject: build.externalDependencies
+    message: externalDependencies
+```
+
+```yaml
+jsonSchemaDefs:
+  externalDependencies:
+    type: dictionary
+    items:
+      type: object
+      properties:
+        projectDir:
+          type: string
+        dependencies:
+          type: array
+          items:
+            type: string
+```

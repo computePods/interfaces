@@ -212,6 +212,12 @@ jsonSchemaDefs:
               type: string
             outputDir:
               type: string
+            install:
+              type: object
+              dir:
+                type: string
+              manualUpdate:
+                type: boolean
             worker:
               type: string
             projectDir:
