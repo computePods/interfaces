@@ -47,6 +47,10 @@ jsonSchemaDefs:
   projectDetails:
     type: object
     properties:
+      rsyncUser:
+        type: string
+      rsyncHost:
+        type: string
       projectName:
         type: string
       projectDir:

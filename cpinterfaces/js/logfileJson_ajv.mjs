@@ -285,6 +285,12 @@ const schema = {
         },
         "projectName": {
           "type": "string"
+        },
+        "rsyncHost": {
+          "type": "string"
+        },
+        "rsyncUser": {
+          "type": "string"
         }
       },
       "type": "object"
